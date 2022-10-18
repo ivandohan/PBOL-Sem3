@@ -10,7 +10,8 @@ public class AgeInputException extends Exception {
         this(DEFAULT_MESSAGE, low, high, input);
     }
 
-    public AgeInputException(String msg, int low, int high, int input) {
+    public AgeInputException(String msg,
+            int low, int high, int input) {
         super(msg);
         if (low > high) {
             throw new IllegalArgumentException();
