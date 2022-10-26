@@ -13,10 +13,10 @@ public class K1a {
 
         System.out.println("Hello, " + name);
 
-        oodNumber();
+        oodNumber(); 
     }
 
-     public static void oodNumber() {
+    public static void oodNumber() {
         for(int i = 0; i < 20; i++) {
             if(i % 2 != 0) {
                 System.out.printf("%d, ", i);

@@ -14,10 +14,9 @@ public class AgeInputVer5 {
         init(DEFAULT_LOWER_BOUND, DEFAULT_UPPER_BOUND);
     }
 
-    public AgeInputVer5(int low, int high)
-            throws IllegalArgumentException {
+    public AgeInputVer5(int low, int high) throws IllegalArgumentException {
         if (low > high) {
-            throw new IllegalArgumentException(
+            throw new IllegalArgumentException (
                     "Low (" + low + ") was " +
                             "larger than high(" + high + ")");
         } else {
@@ -29,19 +28,21 @@ public class AgeInputVer5 {
         return getAge(DEFAULT_MESSAGE);
     }
 
-    public int getAge(String prompt) throws Exception {
+    public int getAge(String prompt) {
         int age;
         while (true) {
             System.out.print(prompt);
             try {
                 age = scanner.nextInt();
                 if (age < lowerBound || age > upperBound) {
-                    throw new Exception("Input out of bound");
+                    throw new Exception("Input out of bound, range " + lowerBound + " to " + upperBound);
                 }
                 return age; // input okay so return the value & exit
             } catch (InputMismatchException e) {
                 scanner.next();
                 System.out.println("Input is invalid.\n" + "Please enter digits only");
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
             }
         }
     }
